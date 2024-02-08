@@ -3,7 +3,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![GPL3 License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 [![Ask Me Anything][ask-me-anything]][personal-page]
 
 <!-- PROJECT LOGO -->
@@ -141,9 +140,6 @@ Distributed under the GPLv3 License. See `LICENSE` for more information.
 
 ## Contact
 
-JohnStilia - <stilia.johny@gmail.com>
-TBC
-
 <!--
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 -->
@@ -172,7 +168,5 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [issues-url]: https://github.com/stiliajohny/pet-app/issues
 [license-shield]: https://img.shields.io/github/license/stiliajohny/pet-app?style=for-the-badge
 [license-url]: https://github.com/stiliajohny/pet-app/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/johnstilia/
 [ask-me-anything]: https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg?style=for-the-badge
 [personal-page]: https://github.com/stiliajohny
