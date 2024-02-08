@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "pet-app"
+		},
+		{
+			"path": "frontend",
+			"name": "frontend"
+		},
+		{
+			"path": "backend",
+			"name": "backend"
+		}
+	],
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"dbaeumer.vscode-eslint",
+			"esbenp.prettier-vscode",
+			"rvest.vs-code-prettier-eslint",
+			"naumovs.color-highlight",
+			"ms-azuretools.vscode-docker",
+			"christian-kohler.npm-intellisense",
+			"christian-kohler.path-intellisense",
+			"esbenp.prettier-vscode",
+		]
+	}
+}
