@@ -1,9 +1,0 @@
-{
-    "name": "pet-app",
-    "private": true,
-    "workspaces": [
-        "frontend",
-        "backend",
-        "playground"
-    ]
-}
