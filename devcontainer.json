@@ -1,6 +1,0 @@
-{
-    "name": "my-simple-project",
-    "dockerComposeFile": [
-        "docker-compose.yml"
-    ]
-}
