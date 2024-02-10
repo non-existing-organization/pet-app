@@ -1,0 +1,17 @@
+.dog-image-container {
+  height: 50vh; /* Adjust height as needed */
+  background-image: url('/images/banner.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.search-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+  padding: 20px;
+  border-radius: 10px;
+}
