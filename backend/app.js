@@ -15,27 +15,15 @@ const port = 3001;
 const swaggerDefinition = {
   openapi: "3.0.0",
   info: {
-    title: "Express API with Swagger",
+    title: "Pet Sitter API",
     version: "1.0.0",
     description: `This is an API for he Pet Sitter App.<br>You can download the OpenAPI specification directly from [/openapi.json](/openapi.json).`,
   },
   tags: [
     {
-      name: "Authentication",
-      description: "Endpoints related to authentication",
-    },
-    {
       name: "Booking Services",
       description: "Endpoints related to booking services",
     },
-    {
-      name: "Users",
-      description: "Endpoints related to users",
-    },
-    {
-      name: "Payments",
-      description: "Endpoints related to payments",
-    }
   ],
   servers: [
     {
