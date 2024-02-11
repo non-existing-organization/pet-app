@@ -1,9 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const pool = require('../utils/db_connector'); 
-const getRandomPetFact = require('../utils/pet_facts'); 
-const petFacts = getRandomPetFact()
-
+const express = require('express')
+const router = express.Router()
+const pool = require('../utils/db_connector')
 
 /**
  * @swagger
@@ -102,19 +99,16 @@ const petFacts = getRandomPetFact()
  *                       description: The routine where the error occurred.
  */
 
-
 router.get('/list-booking-services', async (req, res, next) => {
   try {
-    const result = await pool.query('SELECT * FROM booking_services');
+    const result = await pool.query('SELECT * FROM booking_services')
     // Directly send data; middleware will format it
-    res.send([...result.rows]);
+    res.json([...result.rows])
   } catch (error) {
-    console.error('Error fetching booking services:', error);
+    console.error('Error fetching booking services:', error)
     // Pass the error to next() so the error-handling middleware can catch it
-    next(error); // This ensures the error middleware handles it
+    next(error) // This ensures the error middleware handles it
   }
-});
+})
 
-module.exports = router;
-
-
+module.exports = router
