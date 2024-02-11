@@ -23,9 +23,6 @@ const pool = require('../utils/db_connector')
  *                 message:
  *                   type: string
  *                   description: Response message indicating the successful retrieval of booking services.
- *                 petFacts:
- *                   type: string
- *                   description: Interesting facts about pets.
  *                 data:
  *                   type: array
  *                   items:
@@ -103,7 +100,7 @@ router.get('/list-booking-services', async (req, res, next) => {
   try {
     const result = await pool.query('SELECT * FROM booking_services')
     // Directly send data; middleware will format it
-    res.json([...result.rows])
+    res.send([...result.rows])
   } catch (error) {
     console.error('Error fetching booking services:', error)
     // Pass the error to next() so the error-handling middleware can catch it

@@ -26,16 +26,7 @@ const swaggerDefinition = {
       url: '/api/v1',
       description: 'Version 1'
     }
-  ],
-  components: {
-    securitySchemes: {
-      bearerAuth: {
-        type: 'http',
-        scheme: 'bearer',
-        bearer: 'JWT'
-      }
-    }
-  }
+  ]
 }
 
 // Options for the swagger docs

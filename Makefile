@@ -5,6 +5,11 @@ default: help
 up: check-prereqs ## Bring up Docker Compose in detached mode
 	docker-compose -f docker-compose.dev.yaml up -d
 
+# Bring down Docker Compose
+down: check-prereqs ## Bring down Docker Compose
+	docker-compose -f docker-compose.dev.yaml down
+	
+
 # View logs from Docker Compose
 logs: check-prereqs ## View logs from Docker Compose
 	docker-compose -f docker-compose.dev.yaml logs -f
