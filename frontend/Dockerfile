@@ -7,8 +7,9 @@ WORKDIR /app
 # Copies the package.json and package-lock.json files to leverage Docker caching
 COPY package.json package-lock.json  ./
 
+
 # Install dependencies
-RUN npm install
+RUN npm ci
 
 # If you prefer to install nodemon as a dev dependency instead of globally
 # and use it through a script in your package.json, ensure it's listed in your package.json
@@ -18,7 +19,7 @@ RUN npm install
 COPY . .
 
 # Expose the port the app runs on
-EXPOSE 3002
+EXPOSE 3001
 
 # Command to run your app using nodemon, assuming you have a "dev" script in your package.json
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "prod"]

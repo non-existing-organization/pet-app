@@ -3,7 +3,7 @@ default: help
 
 # Bring up Docker Compose in detached mode
 up: check-prereqs ## Bring up Docker Compose in detached mode
-	docker-compose up -d
+	docker-compose -f docker-compose.dev.yaml up -d
 
 # View logs from Docker Compose
 logs: check-prereqs ## View logs from Docker Compose
@@ -11,7 +11,7 @@ logs: check-prereqs ## View logs from Docker Compose
 
 # Clear Docker cache (specifically for images built by Docker Compose)
 clear-cache: check-prereqs ## Clear Docker cache (specifically for images built by Docker Compose)
-	docker-compose down --rmi local --remove-orphans
+	docker-compose -f docker-compose.dev.yaml down --rmi local --remove-orphans -
 	docker image prune -f
 	docker volume prune -f
 

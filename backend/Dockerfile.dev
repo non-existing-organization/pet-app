@@ -9,7 +9,7 @@ COPY package.json package-lock.json  ./
 
 
 # Install dependencies
-RUN npm ci
+RUN npm install
 
 # If you prefer to install nodemon as a dev dependency instead of globally
 # and use it through a script in your package.json, ensure it's listed in your package.json
@@ -22,4 +22,4 @@ COPY . .
 EXPOSE 3001
 
 # Command to run your app using nodemon, assuming you have a "dev" script in your package.json
-CMD ["npm", "run", "prod"]
+CMD ["npm", "run", "dev"]

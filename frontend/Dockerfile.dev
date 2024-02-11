@@ -1,5 +1,5 @@
 # Use the official Node.js image as a parent image
-FROM node:16
+FROM node:18.16.0
 
 # Set the working directory in the container
 WORKDIR /app
@@ -7,9 +7,8 @@ WORKDIR /app
 # Copies the package.json and package-lock.json files to leverage Docker caching
 COPY package.json package-lock.json  ./
 
-
 # Install dependencies
-RUN npm ci
+RUN npm install
 
 # If you prefer to install nodemon as a dev dependency instead of globally
 # and use it through a script in your package.json, ensure it's listed in your package.json
@@ -19,7 +18,7 @@ RUN npm ci
 COPY . .
 
 # Expose the port the app runs on
-EXPOSE 3001
+EXPOSE 3002
 
 # Command to run your app using nodemon, assuming you have a "dev" script in your package.json
-CMD ["npm", "run", "prod"]
+CMD ["npm", "run", "dev"]
