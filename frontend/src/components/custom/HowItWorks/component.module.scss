@@ -1,0 +1,17 @@
+// make variables and import them
+.blue-circle {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60px; /* Set width of the circle */
+    height: 60px; /* Set height of the circle */
+    background-color: #43a6c6; /* Blue background color */
+    border-radius: 50%; /* Make it a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .icon {
+    color: white; /* Set icon color */
+    font-size: 18px; /* Set icon size */
+  }

@@ -1,32 +1,28 @@
-import Image from 'next/image';
-import styles from './page.module.scss';
+import { Metadata } from 'next';
 import Head from 'next/head';
-import Nav from '../components/layout/nav';
-import Footer from '../components/layout/footer';
+import styles from './page.module.scss';
+import MainPageSearchForm from '../components/custom/mainPageSearch';
+import HowItWorks from '../components/custom/HowItWorks';
+
+export const metadata: Metadata = {
+  title: 'Home',
+};
 
 export default function Home() {
   return (
     <main>
       <div>
-        <Head>
-          <title>Home</title>
-        </Head>
         <main>
-          <div className={styles['dog-image-container']}>
+          <div className={styles['home-page__search_container']}>
             {/* Background image of dog puppy */}
-            <div className={styles['search-form']}>
+            <div className={styles['home-page__search_container__search-form']}>
               <form>
-                <label htmlFor="location">Location:</label>
-                <input type="text" id="location" name="location" />
-                <label htmlFor="service">Service:</label>
-                <select id="service" name="service">
-                  <option value="grooming">Grooming</option>
-                  <option value="boarding">Boarding</option>
-                  <option value="training">Training</option>
-                </select>
-                <button type="submit">Search</button>
+                <MainPageSearchForm />
               </form>
             </div>
+          </div>
+          <div style={{ width: '100%', background: '#F9F9F9', paddingTop: '70px' }}>
+            <HowItWorks />
           </div>
         </main>
       </div>

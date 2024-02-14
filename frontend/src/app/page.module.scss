@@ -1,17 +1,23 @@
-.dog-image-container {
-  height: 50vh; /* Adjust height as needed */
-  background-image: url('/images/banner.jpg'); /* Replace with your image URL */
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
+.home-page {
+  &__search_container {
+    display: flex;
+    height: 50vh; /* Adjust height as needed */
+    background-image: url('/images/banner.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    justify-content: center; /* Horizontally center the child */
+    align-items: center; /* Vertically center the child */
 
-.search-form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
-  padding: 20px;
-  border-radius: 10px;
+    &__search-form {
+      height: 12rem;
+      background-color: rgb(255, 255, 255);
+      padding: 20px;
+      border-radius: 10px;
+      width: 50%; /* 50% of the parent's width */
+      height: 50%; /* 50% of the parent's height */
+      max-width: 700px; /* Optional: Set maximum width */
+      max-height: 700px; /* Optional: Set maximum height */
+    }
+  }
 }
