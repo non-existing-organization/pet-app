@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
-import Head from 'next/head';
 import styles from './page.module.scss';
 import MainPageSearchForm from '../components/custom/mainPageSearch';
 import HowItWorks from '../components/custom/HowItWorks';
+import VerificationInfo from '../components/custom/verification';
+
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -21,8 +22,12 @@ export default function Home() {
               </form>
             </div>
           </div>
-          <div style={{ width: '100%', background: '#F9F9F9', paddingTop: '70px' }}>
+          <div style={{ width: '100%', background: '#F9F9F9', paddingTop: '70px', paddingBottom: '70px' }}>
             <HowItWorks />
+          </div>
+
+          <div style={{ width: '100%', background: '#E8E8E8', paddingTop: '70px',  paddingBottom: '70px' }}>
+            <VerificationInfo />
           </div>
         </main>
       </div>

@@ -1,0 +1,31 @@
+.footer {
+    background-color: #43a6c6; /* Footer background color */
+    padding: 40px 0; /* Padding around the content */
+    color: white;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    
+  }
+  
+  .footer-links li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  .footer-links li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footer-payment {
+    color: white; /* Payment text color */
+  }
+  
+  .footer-bottom {
+    margin-top: 20px; /* Spacing between content */
+    font-size: 14px; /* Font size of bottom text */
+  }
+  
