@@ -1,31 +1,47 @@
 .footer {
-    background-color: #43a6c6; /* Footer background color */
-    padding: 40px 0; /* Padding around the content */
-    color: white;
-  }
-  
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    
-  }
-  
-  .footer-links li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  .footer-links li a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .footer-payment {
-    color: white; /* Payment text color */
-  }
-  
-  .footer-bottom {
-    margin-top: 20px; /* Spacing between content */
-    font-size: 14px; /* Font size of bottom text */
-  }
-  
+  background-color: #43a6c6; /* Footer background color */
+  padding: 40px 0; /* Padding around the content */
+  color: white;
+}
+
+.cute-animal {
+  max-width: 100%; /* Ensure image doesn't exceed its container */
+  display: block; /* Prevent inline image alignment issues */
+}
+
+.footer-section {
+  color: white;
+  margin-bottom: 20px; /* Spacing between sections */
+}
+
+.footer-links,
+.social-links,
+.payment-types {
+  list-style: none; /* Remove bullet points from lists */
+  padding: 0; /* Remove default padding */
+}
+
+.footer-links li,
+.social-links li,
+.payment-types li {
+  margin-bottom: 10px; /* Spacing between list items */
+}
+
+.footer-links a,
+.social-links a {
+  color: white; /* Link color */
+  text-decoration: none; /* Remove default underline */
+}
+
+.footer-links a:hover,
+.social-links a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+.footer-bottom {
+  margin-top: 20px; /* Spacing between content */
+  font-size: 14px; /* Font size of bottom text */
+}
+.footer-bottom a {
+  color: white; /* Link color */
+}
