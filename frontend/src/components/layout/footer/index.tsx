@@ -9,10 +9,10 @@ function Footer() {
     <footer className={styles.footer}>
       <Container>
         <Row>
-          <Col md={3}>
+          <Col>
             <img src="/images/pet-white-clip.png" width={150} className={styles['cute-animal']} />
           </Col>
-          <Col md={3}>
+          <Col>
             <div className={styles['footer-section']}>
               <h5>Pages</h5>
               <ul className={styles['footer-links']}>
@@ -34,7 +34,7 @@ function Footer() {
               </ul>
             </div>
           </Col>
-          <Col md={3}>
+          <Col>
             <div className={styles['footer-section']}>
               <h5>Find us on</h5>
               <ul className={styles['social-links']}>
@@ -53,7 +53,7 @@ function Footer() {
               </ul>
             </div>
           </Col>
-          <Col md={3}>
+          <Col>
             <div className={styles['footer-section']}>
               <h5>Payment</h5>
               <ul className={styles['payment-types']}>
@@ -61,6 +61,9 @@ function Footer() {
                 {/* Add more payment types as needed */}
               </ul>
             </div>
+          </Col>
+          <Col>
+            <img src="/images/cat.png" width={150} className={styles['cute-animal']} />
           </Col>
         </Row>
         <Row className="justify-content-center">
