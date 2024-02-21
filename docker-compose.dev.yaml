@@ -2,7 +2,9 @@ version: "3.8"
 
 services:
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
     ports:
       - "3002:3002" # Expose the frontend on port 3000
     volumes:
@@ -14,7 +16,9 @@ services:
       - backend
 
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
     ports:
       - "3001:3001" # Expose the backend on port 5000
     volumes:
