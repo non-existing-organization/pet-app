@@ -11,6 +11,7 @@ on:
 jobs:
   backend:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -23,13 +24,14 @@ jobs:
 
       - name: Install Dependencies and Run ESLint
         run: |
+          cd backend
           npm install
           npx eslint .
 
       - name: Security Scan
-        run: npm audit
-
-    working-directory: backend
+        run: |
+          cd backend
+          npm audit
 
   frontend:
     runs-on: ubuntu-latest
@@ -46,10 +48,11 @@ jobs:
 
       - name: Install Dependencies and Run ESLint
         run: |
+          cd frontend
           npm install
           npx eslint .
 
       - name: Security Scan
-        run: npm audit
-
-    working-directory: frontend
+        run: |
+          cd frontend
+          npm audit
