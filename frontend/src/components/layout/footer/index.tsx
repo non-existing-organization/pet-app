@@ -1,8 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FiHome, FiUserPlus, FiMail, FiHelpCircle } from 'react-icons/fi';
-import { FaStripe } from 'react-icons/fa';
 import styles from './component.module.css'; // Import CSS file for styling
+import Image from 'next/image';
 
 function Footer() {
   return (
@@ -10,7 +9,7 @@ function Footer() {
       <Container>
         <Row>
           <Col>
-            <img src="/images/pet-white-clip.png" width={150} className={styles['cute-animal']} />
+            <Image alt='dog' src="/images/pet-white-clip.png" width={150} className={styles['cute-animal']} />
           </Col>
           <Col>
             <div className={styles['footer-section']}>
@@ -63,7 +62,7 @@ function Footer() {
             </div>
           </Col>
           <Col>
-            <img src="/images/cat.png" width={150} className={styles['cute-animal']} />
+            <Image alt='cat' src="/images/cat.png" width={150} className={styles['cute-animal']} />
           </Col>
         </Row>
         <Row className="justify-content-center">

@@ -21,7 +21,7 @@ function HowItWorks() {
                 <div className={styles['bar']}></div>
               </div>
               <h6 style={{color: 'grey'}}>How It Work</h6>
-              <h3 className={styles['title']}>Discover and engage with reliable pet caregivers. It's as simple as counting to three!</h3>
+              <h3 className={styles['title']}>Discover and engage with reliable pet caregivers. It&apos;s as simple as counting to three!</h3>
             </div>
           </Col>
         </Row>

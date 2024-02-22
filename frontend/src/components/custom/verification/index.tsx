@@ -8,7 +8,7 @@ function VerificationInfo() {
     <Container>
       <Row className="justify-content-between">
         <Col md={5}>
-          <Image src="/images/identity-verification.webp" />
+          <Image alt='Trust and Security Ensured' src="/images/identity-verification.webp" />
         </Col>
         <Col>
           <Container className="mt-4">

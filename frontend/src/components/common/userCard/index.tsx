@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Badge, Card } from "react-bootstrap";
 
 const SearchResultCard: React.FC<{ user: any }> = ({ user }) => {
@@ -6,7 +7,7 @@ const SearchResultCard: React.FC<{ user: any }> = ({ user }) => {
         <Card.Body>
           <div className="d-flex align-items-center">
             <div className="mr-3">
-              <img src={user.picture} alt="User" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
+              <Image src={user.picture} alt="User" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
             </div>
             <div>
               <Card.Title>{user.name}</Card.Title>
