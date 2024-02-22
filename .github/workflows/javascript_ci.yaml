@@ -5,7 +5,6 @@ on:
     types: [opened, synchronize, reopened]
     branches:
       - master
-      - update-javavscript-ci-github-file
     paths-ignore:
       - "**/*.md" # Ignore markdown files, adjust as needed
 
