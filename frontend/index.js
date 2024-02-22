@@ -1,6 +1,7 @@
 // frontend/index.js
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
+
 const app = express();
 const PORT = 3002; // Make sure this port is different from your backend port
 
