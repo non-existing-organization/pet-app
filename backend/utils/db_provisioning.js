@@ -1,18 +1,23 @@
+// db_connector.js import for database connection pool management
 const pool = require('./db_connector'); // Import the pool from db-connector.js
 require('dotenv').config();
 
-// Ensure necessary environment variables are set
+/**
+ * Checks and ensures that all required environment variables are set before proceeding.
+ * Environment variables for database connection details must be set.
+ */
 const requiredEnv = ['DB_USER', 'DB_PASSWORD', 'DB_HOST', 'DB_PORT', 'DB_NAME'];
 requiredEnv.forEach((env) => {
   if (!process.env[env]) {
     console.error(`Fatal Error: ${env} is not set in the environment variables.`);
-    process.exit(1); // Exit the process with an error code
+    process.exit(1);
   }
 });
 
-// Improved logging (avoid logging sensitive details)
-console.log('Successfully connected to the database.');
-
+/**
+ * Executes a given SQL statement using the pool's client connection.
+ * @param {string} sql - The SQL statement to be executed.
+ */
 const provision = async (sql) => {
   const client = await pool.connect()
   try {
@@ -21,10 +26,11 @@ const provision = async (sql) => {
   } catch (err) {
     console.error('Error executing query', err.stack)
   } finally {
-    client.release() // Ensure the client is released in case of success or failure
+    client.release() 
   }
 }
 
+// SQL statement for creating the booking_services table
 const provisionBookingServicesTable = `
 CREATE TABLE IF NOT EXISTS booking_services (
     id SERIAL PRIMARY KEY,
@@ -37,7 +43,7 @@ CREATE TABLE IF NOT EXISTS booking_services (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 `
-
+// SQL statement for populating the booking_services table with initial data
 const populateBookingServicesTable = `
 INSERT INTO booking_services (type_of_service, service_name, service_description, duration, target_pet)
 VALUES
@@ -45,7 +51,7 @@ VALUES
     ('Pet Walking', 'Daily Pet Walking', '30-minute walking service to keep your pet healthy and active.', '30 minutes', 'Dogs'),
     ('Pet Grooming', 'Full Grooming Session', 'Complete grooming service including bath, hair cut, and nail trimming.', '1 hour', 'Dogs, Cats');
 `
-
+// SQL statement for creating the consolidated_users table
 const provisionConsolidatedUsersTabe = `
 CREATE TABLE IF NOT EXISTS consolidated_users (
   user_id SERIAL PRIMARY KEY,
@@ -72,7 +78,7 @@ CREATE TABLE IF NOT EXISTS consolidated_users (
   skills JSONB
 );
 `
-
+// SQL statement for populating the consolidated_users table with initial data
 const populateConsolidatedUsersTable = `
 INSERT INTO consolidated_users (
   email, 
@@ -101,8 +107,9 @@ INSERT INTO consolidated_users (
 ('user4@example.com', 'readonly', 'banned', 'User 4', 'User 4 description', 'ReadOnly user with a history of informative pet care blogs.', 'http://example.com/photo4.jpg', '123-456-7804', '4 ReadOnly Road, Blogville, BV 00004', '{"contact_method": "email"}', NULL, NULL, NULL, '2023-08-22 16:30:00', 48, 'flexible', NULL, NULL, '{"languages": ["English"], "certifications": ["First Aid"]}'),
 ('user5@example.com', 'sitter', 'disabled', 'User 5', 'User 5 description', 'Experienced dog sitter with a passion for large breeds.', 'http://example.com/photo5.jpg', '123-456-7805', '5 Dog Park Blvd, Dogville, DV 00005', '{"contact_method": "email"}', '{"pet_ownership": "dogs"}', '{"service": "Pet Walking", "rate": 20}', '{"days": ["Tuesday", "Thursday"], "time_slots": ["Afternoon", "Evening"]}', '2023-09-10 11:45:00', 18, 'moderate', '{"ratings": [{"rating": 5, "comment": "Fantastic dog walker!"}]}', 'Large fenced yard, perfect for exercise', '{"languages": ["English", "Spanish"], "certifications": ["First Aid", "Veterinary Experience"]}');
 `
-
-//  create an array with all the SQL statements to execute
+/**
+ * An array containing all SQL statements to be executed for database setup.
+ */
 const sqlStatements = [
   provisionBookingServicesTable,
   populateBookingServicesTable,
@@ -110,7 +117,9 @@ const sqlStatements = [
   populateConsolidatedUsersTable
 ];
 
-// Execute all SQL statements
+/**
+ * Asynchronously executes a series of SQL statements for database provisioning.
+ */
 (async () => {
   try {
     for (const sql of sqlStatements) {
