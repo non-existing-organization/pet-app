@@ -53,12 +53,12 @@ async function ensureTableExists() {
 }
 
 // Root route
-fastify.get('/', async (request, reply) => {
+fastify.get('/', async () => {
   return { hello: 'world' };
 });
 
 // Add a new pet
-fastify.post('/pets', async (request, reply) => {
+fastify.post('/pets', async (request) => {
   const { name, type } = request.body;
   const client = await fastify.pg.connect();
   const { rows } = await client.query(
@@ -70,7 +70,7 @@ fastify.post('/pets', async (request, reply) => {
 });
 
 // Get all pets
-fastify.get('/pets', async (request, reply) => {
+fastify.get('/pets', async () => {
   const client = await fastify.pg.connect();
   const { rows } = await client.query('SELECT * FROM pets');
   client.release();
