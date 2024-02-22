@@ -9,23 +9,48 @@ on:
       - "**/*.md" # Ignore markdown files, adjust as needed
 
 jobs:
-  build:
+  backend:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: Use Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16" # Set this to your project's node version
-          cache: "yarn" # Enable Yarn caching
+          node-version: "18"
+          cache: "npm"
 
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Run ESLint
-        run: yarn eslint .
+      - name: Install Dependencies and Run ESLint
+        run: |
+          npm install
+          npx eslint .
 
       - name: Security Scan
-        run: yarn audit --groups dependencies
+        run: npm audit
+
+    working-directory: backend
+
+  frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install Dependencies and Run ESLint
+        run: |
+          npm install
+          npx eslint .
+
+      - name: Security Scan
+        run: npm audit
+
+    working-directory: frontend
