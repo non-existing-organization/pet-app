@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import styles from './component.module.css'; // Import CSS file for styling
@@ -9,7 +11,7 @@ function Footer() {
       <Container>
         <Row>
           <Col>
-            <Image alt='dog' src="/images/pet-white-clip.png" width={150} className={styles['cute-animal']} />
+            <Image alt='dog' src="/images/pet-white-clip.png" height={200} width={150} className={styles['cute-animal']} />
           </Col>
           <Col>
             <div className={styles['footer-section']}>
@@ -62,7 +64,7 @@ function Footer() {
             </div>
           </Col>
           <Col>
-            <Image alt='cat' src="/images/cat.png" width={150} className={styles['cute-animal']} />
+            <Image alt='cat' src="/images/cat.png" height={200} width={150} className={styles['cute-animal']} />
           </Col>
         </Row>
         <Row className="justify-content-center">

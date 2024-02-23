@@ -1,23 +1,66 @@
+$breakpoint-xs: 575.98px;
+$breakpoint-sm: 767.98px;
+$breakpoint-md: 991.98px;
+$breakpoint-lg: 1199.98px;
+
+// Extra Small Devices (phones)
+$screen-xs-max: $breakpoint-xs;
+
+// Small Devices (landscape phones, tablets)
+$screen-sm-min: $breakpoint-xs + 1px;
+$screen-sm-max: $breakpoint-sm;
+
+// Medium Devices (tablets)
+$screen-md-min: $breakpoint-sm + 1px;
+$screen-md-max: $breakpoint-md;
+
+// Large Devices (desktops, laptops)
+$screen-lg-min: $breakpoint-md + 1px;
+$screen-lg-max: $breakpoint-lg;
+
+// Extra Large Devices (large desktops)
+$screen-xl-min: $breakpoint-lg + 1px;
+
 .home-page {
   &__search_container {
-    display: flex;
     height: 50vh; /* Adjust height as needed */
     background-image: url('/images/banner.jpg'); /* Replace with your image URL */
     background-size: cover;
     background-position: center;
-    position: relative;
-    justify-content: center; /* Horizontally center the child */
-    align-items: center; /* Vertically center the child */
-
-    &__search-form {
-      height: 12rem;
-      background-color: rgb(255, 255, 255);
-      padding: 20px;
-      border-radius: 10px;
-      width: 50%; /* 50% of the parent's width */
-      height: 50%; /* 50% of the parent's height */
-      max-width: 700px; /* Optional: Set maximum width */
-      max-height: 700px; /* Optional: Set maximum height */
+    display: grid;
+    place-items: center;
+    &__content {
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-top: 15vh;
+      text-align: center;
+      height: 100%;
+      max-width: 890px;
+      h2,
+      h4 {
+        color: white;
+      }
     }
   }
+}
+
+// Media Queries
+@media (max-width: $screen-xs-max) {
+  // CSS styles for Extra Small Devices
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  // CSS styles for Small Devices
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  // CSS styles for Medium Devices
+}
+
+@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+  // CSS styles for Large Devices
+}
+
+@media (min-width: $screen-xl-min) {
+  // CSS styles for Extra Large Devices
 }
