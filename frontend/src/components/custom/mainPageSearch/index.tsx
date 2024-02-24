@@ -90,7 +90,7 @@ function MainPageSearchForm({ onSubmit }: Props) {
   const fetchSuggestions = async (inputValue) => {
     try {
       const response = await axios.get(
-        `https://api.pawshake.scalecity.space/place/autocomplete?countryCode=GB&query=${inputValue}&sessionToken=585ed234-2b43-4dd0-8ca9-5bec81065831`
+        `https://api.pawshake.scalecity.space/place/autocomplete?countryCode=GB&query=${inputValue}`
       );
       const data = response.data?.proxyResult as ApiResponse;
       const locationsList = data.predictions.map((prediction) => ({ ...prediction.structured_formatting, placeId: prediction.place_id }));
