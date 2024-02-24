@@ -23,13 +23,13 @@ $screen-xl-min: $breakpoint-lg + 1px;
 
 .home-page {
   &__search_container {
-    height: 50vh; /* Adjust height as needed */
     background-image: url('/images/banner.jpg'); /* Replace with your image URL */
     background-size: cover;
     background-position: center;
     display: grid;
     place-items: center;
     &__content {
+      height: 50vh;
       padding-left: 10px;
       padding-right: 10px;
       margin-top: 15vh;
@@ -47,10 +47,16 @@ $screen-xl-min: $breakpoint-lg + 1px;
 // Media Queries
 @media (max-width: $screen-xs-max) {
   // CSS styles for Extra Small Devices
+  .home-page__search_container {
+    height: 100vh;
+  }
 }
 
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
   // CSS styles for Small Devices
+  .home-page__search_container {
+    height: 100vh;
+  }
 }
 
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {

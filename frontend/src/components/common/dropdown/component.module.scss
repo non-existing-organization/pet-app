@@ -1,0 +1,13 @@
+// @import '~bootstrap/scss/bootstrap';
+
+.dropdown {
+    &__input {
+        text-align: start;
+        width: 100%;
+        background: white;
+        border: 1px solid #dee2e6;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+

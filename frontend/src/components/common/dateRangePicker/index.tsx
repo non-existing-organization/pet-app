@@ -1,12 +1,16 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { DateRangePicker } from 'react-date-range';
+import { DateRange } from 'react-date-range';
 
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 
-const DatePicker = ({ onDateChange }) => {
+interface Props {
+  onDateChange?: (items) => void;
+}
+
+const DatePicker = ({ onDateChange }: Props) => {
   const [dateRange, setDateRange] = useState<any>([
     {
       startDate: new Date(),
@@ -22,11 +26,11 @@ const DatePicker = ({ onDateChange }) => {
   };
 
   const handleDateSelect = (ranges: any) => {
-    setDateRange([ranges.selection]);
+    setDateRange?.([ranges.selection]);
   };
 
   useEffect(() => {
-    onDateChange([dateRange]);
+    onDateChange?.([dateRange]);
   }, [dateRange, onDateChange]);
 
   const handleOutsideClick = (event: MouseEvent) => {
@@ -45,7 +49,6 @@ const DatePicker = ({ onDateChange }) => {
     };
   }, []);
 
-
   return (
     <div className="position-relative">
       <div className="date-input" onClick={handleDateFieldClick}>
@@ -56,12 +59,8 @@ const DatePicker = ({ onDateChange }) => {
         />
       </div>
       {showDatePicker && (
-        <div className="date-range-picker" style={{ position: 'absolute', top: '40px', zIndex: 1000 }}>
-          <DateRangePicker
-            ranges={dateRange}
-            onChange={handleDateSelect}
-            showSelectionPreview={true}
-          />
+        <div className="date-range-picker" style={{ position: 'absolute', top: '40px', zIndex: 1000, border: '1px solid #dee2e6' }}>
+          <DateRange ranges={dateRange} onChange={handleDateSelect} showSelectionPreview={true}   moveRangeOnFirstSelection={false}/>
         </div>
       )}
     </div>
