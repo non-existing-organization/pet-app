@@ -58,8 +58,8 @@ interface Props {
 function MainPageSearchForm({ onSubmit }: Props) {
   const router = useRouter();
   const [items, setItems] = useState<{ text: string; value: string }[]>([]);
-  const [selectedService, setSelectedService] = useState<string>(null);
-  const [selectedDates, setSelectedDates] = useState<string>(null);
+  const [selectedService, setSelectedService] = useState<string>('');
+  const [selectedDates, setSelectedDates] = useState<string>('');
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState<MappedStructuredFormatting[]>([]);
   const [locationId, setSelectedSuggestion] = useState('');

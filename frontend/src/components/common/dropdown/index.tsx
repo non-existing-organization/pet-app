@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 import { Dropdown } from 'react-bootstrap';
 import style from './component.module.scss';
 import { useState } from 'react';
@@ -14,7 +15,7 @@ interface Props {
 }
 
 const DropdownInput = ({ text, items = [], selectedKey, style: toggleStyles }: Props) => {
-  const [selected, setSelected] = useState<{ value: string; text: string }>(null);
+  const [selected, setSelected] = useState<{ value: string; text: string }>();
 
   const handleSelect = (eventKey) => {
     const item = items.find(({ value }) => value === eventKey);

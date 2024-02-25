@@ -1,5 +1,5 @@
+import React from 'react';
 import { Metadata } from 'next';
-
 import MainPageSearchForm from '../components/custom/mainPageSearch';
 import HowItWorks from '../components/custom/HowItWorks';
 import VerificationInfo from '../components/custom/verification';
