@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Container, Row, Col, Form, Button, FormControl } from 'react-bootstrap';
 import axios from 'axios';
 import { FaSearch } from 'react-icons/fa';
@@ -51,12 +52,14 @@ interface ApiResponse {
 }
 
 interface Props {
-  onSubmit: (data) => void;
+  onSubmit?: (data) => void;
 }
 
 function MainPageSearchForm({ onSubmit }: Props) {
+  const router = useRouter();
   const [items, setItems] = useState<{ text: string; value: string }[]>([]);
   const [selectedService, setSelectedService] = useState<string>(null);
+  const [selectedDates, setSelectedDates] = useState<string>(null);
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState<MappedStructuredFormatting[]>([]);
   const [locationId, setSelectedSuggestion] = useState('');
@@ -82,16 +85,22 @@ function MainPageSearchForm({ onSubmit }: Props) {
     // Access form data here
     const service = selectedService;
     const location = locationId;
-    const date = event.target.date.value;
+    const date = selectedDates;
 
-    onSubmit?.({service, location, date})
+    const formData = { service, location, date };
+
+    if (onSubmit) {
+      onSubmit?.(formData);
+    } else {
+      const queryString = new URLSearchParams(formData).toString();
+      const destinationUrl = `/search?${queryString}`;
+      router.push(destinationUrl);
+    }
   }
 
   const fetchSuggestions = async (inputValue) => {
     try {
-      const response = await axios.get(
-        `https://api.pawshake.scalecity.space/place/autocomplete?countryCode=GB&query=${inputValue}`
-      );
+      const response = await axios.get(`https://api.pawshake.scalecity.space/place/autocomplete?countryCode=GB&query=${inputValue}`);
       const data = response.data?.proxyResult as ApiResponse;
       const locationsList = data.predictions.map((prediction) => ({ ...prediction.structured_formatting, placeId: prediction.place_id }));
       setSuggestions(locationsList);
@@ -112,13 +121,13 @@ function MainPageSearchForm({ onSubmit }: Props) {
             <Col md={6}>
               <Form.Group controlId="service" style={{ position: 'relative' }}>
                 <Form.Label>Select Service</Form.Label>
-                <DropdownInput text="Services" items={items} selectedKey={setSelectedService} />
+                <DropdownInput text="Services" items={items} selectedKey={setSelectedService} style={{ height: '45px' }} />
               </Form.Group>
             </Col>
             <Col md={6}>
               <Form.Group controlId="location" style={{ position: 'relative' }}>
                 <Form.Label>Location</Form.Label>
-                <FormControl type="text" value={value} onChange={handleChange} placeholder="Enter text" autoComplete="off" required />
+                <FormControl type="text" value={value} onChange={handleChange} placeholder="Enter text" autoComplete="off" required style={{ height: '45px' }} />
                 {suggestions.length > 0 && (
                   <ul className={`${styles['main_page_search__suggestions-list']}`}>
                     {suggestions.map((suggestion, index) => (
@@ -136,14 +145,14 @@ function MainPageSearchForm({ onSubmit }: Props) {
             </Col>
           </Row>
           <Row className="justify-content-center align-items-center">
-            <Col md={6}>
+            <Col md={6} className='mt-3'>
               <Form.Group controlId="date">
                 <Form.Label>Select Date</Form.Label>
-                <DatePicker />
+                <DatePicker style={{ height: '45px' }} onDateChange={setSelectedDates} />
               </Form.Group>
             </Col>
-            <Col md={6} className="justify-content-center align-items-center" style={{ paddingTop: '32px', textAlign: 'center' }}>
-              <Button variant="success" type="submit" style={{ width: '100%' }}>
+            <Col md={6} className="justify-content-center align-items-center mt-3" style={{ paddingTop: '32px', textAlign: 'center' }}>
+              <Button variant="success" type="submit" style={{ width: '100%', height: '45px' }}>
                 <FaSearch /> Search
               </Button>
             </Col>

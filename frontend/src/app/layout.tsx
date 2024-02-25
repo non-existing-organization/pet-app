@@ -4,6 +4,7 @@ import Nav from '../components/layout/nav';
 import Footer from '../components/layout/footer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-day-picker/dist/style.css';
 import './globals.scss';
 
 const inter = Inter({ subsets: ['latin'] });

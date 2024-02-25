@@ -1,16 +1,21 @@
 'use client';
 import React, { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Container, Row, Col, Form, Button, Card, Dropdown } from 'react-bootstrap';
 import DatePicker from '../../components/common/dateRangePicker';
 import DropdownInput from '../../components/common/dropdown';
 import PriceRangeInput from '../../components/common/priceRangeInput';
 import MapComponent from '../../components/common/map';
 import SearchResultCard from '../../components/common/userCard';
+import AnimalPicker from '../../components/custom/animalPicker';
 
-const SearchPage: React.FC = () => {
+function SearchPage() {
+  const searchParams = useSearchParams();
   // State for search query and search results
   const [location, setLocation] = useState<string>('');
   const [searchResults, setSearchResults] = useState<any[]>([{}]); // Adjust type according to your search result structure
+
+  const searchLocation = searchParams.get('date')
 
   // Function to handle search
   const handleSearch = () => {
@@ -52,6 +57,7 @@ const SearchPage: React.FC = () => {
             </Form>
 
             <hr />
+            <AnimalPicker/>
           </Col>
 
           {/* Middle column with search results */}
@@ -70,6 +76,6 @@ const SearchPage: React.FC = () => {
       </Container>
     </main>
   );
-};
+}
 
 export default SearchPage;

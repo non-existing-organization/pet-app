@@ -10,9 +10,10 @@ interface Props {
     text: string;
   }[];
   selectedKey?: (item) => void;
+  style?:{[key: string]: string}
 }
 
-const DropdownInput = ({ text, items = [], selectedKey }: Props) => {
+const DropdownInput = ({ text, items = [], selectedKey, style: toggleStyles }: Props) => {
   const [selected, setSelected] = useState<{ value: string; text: string }>(null);
 
   const handleSelect = (eventKey) => {
@@ -22,7 +23,7 @@ const DropdownInput = ({ text, items = [], selectedKey }: Props) => {
   };
   return (
     <Dropdown onSelect={handleSelect}>
-      <Dropdown.Toggle variant="light" id="services-dropdown" className={style['dropdown__input']}>
+      <Dropdown.Toggle  variant="light" id="services-dropdown" className={style['dropdown__input']}  style={toggleStyles} >
         {selected?.text ?? text}
       </Dropdown.Toggle>
       <Dropdown.Menu style={{width: '100%'}}>
