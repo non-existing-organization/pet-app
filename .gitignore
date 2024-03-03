@@ -86,6 +86,12 @@ web_modules/
 # Next.js build output
 .next
 out
+/.next/
+/out/
+
+# production
+/build
+
 
 # Nuxt.js build / generate output
 .nuxt
@@ -132,3 +138,8 @@ dist
 
 # Other 
 **/postgres_data/*
+
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
